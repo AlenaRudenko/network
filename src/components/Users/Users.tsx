@@ -11,7 +11,7 @@ export const Users = (props: IProps) => {
     axios
       .get("https://social-network.samuraijs.com/api/1.0/users")
       .then((value) => {
-        console.log(value);
+        console.log(value.data.items);
       });
   };
 
@@ -19,7 +19,7 @@ export const Users = (props: IProps) => {
   return (
     <div>
       <button onClick={getUsers}>Get users</button>
-      <div className="user__main">
+      <div className='user__main'>
         {props.users.map((user) => {
           return (
             <UserItem
