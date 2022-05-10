@@ -1,0 +1,16 @@
+.description__block {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 700;
+}
+.description__block img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.description__block span {
+  margin-top: 10px;
+}

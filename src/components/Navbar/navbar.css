@@ -1,0 +1,36 @@
+.nav {
+  font-family: inherit;
+  grid-area: n;
+  background-color: #3c3c3c;
+  border-top-left-radius: 2px;
+  padding: 10px;
+  border-bottom-left-radius: 2px;
+  box-shadow: 0px 0px 20px -15px rgb(31, 32, 32);
+  color: #ebebeb;
+  margin-bottom: 10px;
+}
+.nav__item {
+  margin-bottom: 10px;
+  margin-left: 10px;
+  font-size: 25px;
+}
+.nav__item:hover {
+  color: rgb(105, 215, 202);
+}
+a {
+  font-size: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ebebeb;
+}
+.nav__item .active {
+  color: rgb(105, 215, 202);
+  text-decoration: none;
+}
+
+.friends__container {
+  padding: 0px 5px;
+  display: flex;
+  justify-content: space-between;
+}

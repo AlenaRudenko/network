@@ -1,0 +1,29 @@
+.posts_item img {
+  width: 50px;
+  border-radius: 50%;
+}
+.posts_item {
+  font-weight: 700;
+  margin-bottom: 10px;
+  /* display: flex;
+  align-items: center; */
+}
+.post__element {
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+.post__element img {
+  margin-right: 7px;
+}
+.posts__likes {
+  color: whitesmoke;
+}
+.posts__likes span {
+  font-size: 20px;
+  margin-right: 3px;
+  cursor: pointer;
+}
+.posts__likes span:hover {
+  color: rgb(105, 215, 202);
+}

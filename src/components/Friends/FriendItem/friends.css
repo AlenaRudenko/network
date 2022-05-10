@@ -1,0 +1,29 @@
+.friend {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  justify-content: center;
+}
+.friend img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  margin-bottom: 3px;
+}
+.friendsPage {
+  display: flex;
+  flex-direction: column;
+}
+.friendsPage img {
+  width: 200px;
+  height: 200px;
+}
+.friends__list {
+  display: flex;
+  justify-content: space-between;
+}
+.friendsPage {
+  display: flex;
+  align-items: center;
+}

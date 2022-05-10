@@ -1,0 +1,60 @@
+.user__main {
+  width: 100%;
+}
+.user__container {
+  width: 80%;
+  height: 100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.user__description {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.user__location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.user__block {
+  display: flex;
+  background-color: #3c3c3c;
+  margin-bottom: 10px;
+  align-items: center;
+  padding: 5px 10px;
+}
+.user__follow img {
+  width: 80px;
+  border-radius: 50%;
+  margin-bottom: 3px;
+}
+.user__follow {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.follow__button {
+  font-weight: 700;
+  cursor: pointer;
+  width: 100px;
+  background-color: whitesmoke;
+  color: black;
+  padding: 3px 0px;
+  border: none;
+  border-radius: 2px;
+}
+.follow__button--unfollow {
+  font-weight: 700;
+  cursor: pointer;
+  width: 100px;
+  background-color: black;
+  color: whitesmoke;
+  padding: 3px 0px;
+  border: none;
+  border-radius: 2px;
+}
