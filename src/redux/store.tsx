@@ -1,3 +1,5 @@
+import { IUsers, IUsersItem } from "./usersReducer";
+
 export interface IProfile {
   postsData: IPostdataItem[];
   newPostText: string;
@@ -29,6 +31,7 @@ export interface IState {
   profilePage: IProfile;
   dialoguesPage: IDialogue;
   sideBar: ISidebarItem[];
+  usersPage: IUsers;
 }
 export interface IAction {
   type: string;

@@ -4,28 +4,7 @@ const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST = "UPDATE_NEW_POST";
 
 let initialState: IProfile = {
-  postsData: [
-    {
-      id: "1",
-      message: "Hi!",
-      likesCount: "1"
-    },
-    {
-      id: "2",
-      message: "My first post",
-      likesCount: "23"
-    },
-    {
-      id: "3",
-      message: "Hohohoh!",
-      likesCount: "1"
-    },
-    {
-      id: "4",
-      message: "Hehehe!",
-      likesCount: "1"
-    }
-  ],
+  postsData: [],
   newPostText: ""
 };
 

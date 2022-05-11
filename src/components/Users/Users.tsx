@@ -1,25 +1,17 @@
-import axios from "axios";
 import { IUsersItem } from "../../redux/usersReducer";
 import { UserItem } from "./UserItem";
+
 interface IProps {
-  setUsers: (users: IUsersItem[]) => void;
   users: IUsersItem[];
-  changeFollow: () => void;
+  setUsers: (value: IUsersItem[]) => void;
+  changeFollow: (id: IUsersItem["id"]) => void;
+  updatePage: () => void;
 }
 export const Users = (props: IProps) => {
-  const getUsers = () => {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((value) => {
-        console.log(value.data.items);
-      });
-  };
-
-  console.log(props);
   return (
     <div>
-      <button onClick={getUsers}>Get users</button>
-      <div className='user__main'>
+      <button onClick={props.updatePage}>UPDATE PAGE</button>
+      <div className="user__main">
         {props.users.map((user) => {
           return (
             <UserItem
