@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import { IUsersItem } from "../../redux/usersReducer";
 import "./styles.css";
 
@@ -6,7 +7,7 @@ interface IProps {
   fullName: IUsersItem["name"];
   followed: IUsersItem["followed"];
   status: IUsersItem["status"];
-  changeFollow: (id) => void;
+  changeFollow: (id: IUsersItem["id"]) => void;
 }
 
 export const UserItem = (props: IProps) => {
@@ -16,10 +17,13 @@ export const UserItem = (props: IProps) => {
   return (
     <div className="user__block">
       <div className="user__follow">
-        <img
-          alt=""
-          src="https://www.meme-arsenal.com/memes/6f320c6bee4b51cf5a51536233955869.jpg"
-        />
+        <NavLink to={"/profile/" + props.id}>
+          <img
+            alt=""
+            src="https://www.meme-arsenal.com/memes/6f320c6bee4b51cf5a51536233955869.jpg"
+          />
+        </NavLink>
+
         <button
           className={
             props.followed ? `follow__button--unfollow` : `follow__button`

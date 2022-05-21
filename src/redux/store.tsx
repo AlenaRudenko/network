@@ -3,10 +3,25 @@ import { IUsers, IUsersItem } from "./usersReducer";
 export interface IProfile {
   postsData: IPostdataItem[];
   newPostText: string;
+  profile: IApiProfile[];
+}
+export interface IApiProfile {
+  aboutMe: string;
+  contacts: IContact;
+  lookingForAJob: boolean;
+  lookingForAJobDescription: null;
+  fullName: string;
+  userId: number;
+}
+
+export interface IContact {
+  facebook: null;
+  website: null;
+  vk: null;
 }
 export interface IPostdataItem {
   id: string;
-  message: string;
+  text: string;
   likesCount: string;
 }
 export interface IDialogue {

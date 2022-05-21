@@ -3,6 +3,7 @@ import { IAction } from "./store";
 export interface IUsers {
   users: IUsersItem[];
   fullArray: IUsersItem[];
+  isFetching: boolean;
 }
 export interface IUsersItem {
   name: string;
@@ -24,25 +25,14 @@ export interface ILocation {
 
 const initialState: IUsers = {
   fullArray: [],
-  users: [
-    {
-      name: "AlenaRudenko",
-      id: 1223,
-      uniqueUrlName: null,
-      photos: {
-        small: null,
-        large: null
-      },
-      status: null,
-      followed: false,
-      key: 0
-    }
-  ]
+  users: [],
+  isFetching: false
 };
 
 const CHANGE_FOLLOW = "CHANGE_FOLLOW";
 const SET_USERS = "SET_USERS";
 const UPDATE_PAGE = "UPDATE_PAGE";
+const TOGGLE_ISFETCHING = "TOGGLE_ISFETCHING";
 
 export const changeFollow = (id) => ({
   type: CHANGE_FOLLOW,
@@ -55,7 +45,10 @@ export const setUsers = (users) => ({
 export const updatePage = () => ({
   type: UPDATE_PAGE
 });
-
+export const setIsFetching = (value: IUsers["isFetching"]) => ({
+  type: TOGGLE_ISFETCHING,
+  payload: value
+});
 export const usersReducer = (state = initialState, action: IAction) => {
   switch (action.type) {
     case CHANGE_FOLLOW: {
@@ -84,6 +77,12 @@ export const usersReducer = (state = initialState, action: IAction) => {
       return {
         ...state,
         users: [...result]
+      };
+    }
+    case TOGGLE_ISFETCHING: {
+      return {
+        ...state,
+        isFetching: action.payload
       };
     }
     default:

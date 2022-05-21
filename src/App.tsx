@@ -1,6 +1,6 @@
 import { Header } from "./components/Header/Header";
 import { News } from "./components/News/News";
-import { Profile } from "./components/Profile/Profile";
+import { ProfileContainer } from "./components/Profile/ProfileContainer";
 import { Music } from "./components/Music/Music";
 import "./styles.css";
 import { Route, Routes } from "react-router-dom";
@@ -13,8 +13,8 @@ import { UsersContainer } from "./components/Users/UsersContainer";
 export const App = () => {
   let appElement = [
     {
-      path: "/profile",
-      element: <Profile />
+      path: "/profile/*",
+      element: <ProfileContainer />
     },
     {
       path: "/dialogues/*",

@@ -10,7 +10,7 @@ export const Post = (props: IPostdataItem) => {
             alt=""
             src="https://i.kym-cdn.com/photos/images/newsfeed/001/384/542/f03.jpg"
           />
-          {props.message}
+          {props.text}
         </div>
         <div className="posts__likes">
           <span>❤</span>

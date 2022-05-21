@@ -2,7 +2,9 @@ import { connect } from "react-redux";
 import { IState } from "../../redux/store";
 import {
   changeFollow,
+  IUsers,
   IUsersItem,
+  setIsFetching,
   setUsers,
   updatePage
 } from "../../redux/usersReducer";
@@ -15,13 +17,17 @@ interface IProps {
   setUsers: (value: IUsersItem[]) => void;
   changeFollow: (id: IUsersItem["id"]) => void;
   updatePage: () => void;
+  isFetching: IUsers["isFetching"];
+  setIsFetching: (value: IUsers["isFetching"]) => void;
 }
 
 export class UsersApi extends React.Component<IProps> {
   componentDidMount() {
+    this.props.setIsFetching(true);
     axios
       .get("https://my-json-server.typicode.com/AlenaRudenko/demo/users")
       .then((value) => {
+        this.props.setIsFetching(false);
         this.props.setUsers(value.data);
       });
   }
@@ -30,28 +36,32 @@ export class UsersApi extends React.Component<IProps> {
   };
   render() {
     return (
-      <Users
-        setUsers={this.props.setUsers}
-        users={this.props.users}
-        changeFollow={this.props.changeFollow}
-        updatePage={this.props.updatePage}
-      />
+      <>
+        {this.props.isFetching ? (
+          <img
+            alt=""
+            src="https://media3.giphy.com/media/3o7bu3XilJ5BOiSGic/giphy.gif"
+          />
+        ) : null}
+        <Users
+          setUsers={this.props.setUsers}
+          users={this.props.users}
+          changeFollow={this.props.changeFollow}
+          updatePage={this.props.updatePage}
+        />
+      </>
     );
   }
 }
 
 const mapStateToProps = (state: IState) => ({
-  users: state.usersPage.users
+  users: state.usersPage.users,
+  isFetching: state.usersPage.isFetching
 });
-const mapDispatchToProps = (dispatch: any) => {
-  return {
-    changeFollow: (id: IUsersItem["id"]) => dispatch(changeFollow(id)),
-    setUsers: (users: IUsersItem[]) => dispatch(setUsers(users)),
-    updatePage: () => dispatch(updatePage())
-  };
-};
 
-export const UsersContainer = connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(UsersApi);
+export const UsersContainer = connect(mapStateToProps, {
+  changeFollow,
+  setUsers,
+  updatePage,
+  setIsFetching
+})(UsersApi);
