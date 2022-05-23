@@ -4,11 +4,14 @@ const ADD_POST = "ADD_POST";
 const UPDATE_NEW_POST = "UPDATE_NEW_POST";
 const GET_POSTS = "GET_POSTS";
 const GET_USER = "GET_USER";
+const SET_USER_ID = "SET_USER_ID";
+const CLEAR_POSTS = "CLEAR_POSTS";
 
 let initialState: IProfile = {
   postsData: [],
-  profile: [],
-  newPostText: ""
+  profile: null,
+  newPostText: "",
+  currentUser: null
 };
 
 export const profileReducer = (state = initialState, action: IAction) => {
@@ -34,13 +37,27 @@ export const profileReducer = (state = initialState, action: IAction) => {
     case GET_POSTS: {
       return {
         ...state,
-        postsData: [...state.profile, ...action.payload]
+        postsData: [...state.postsData, ...action.payload]
+      };
+    }
+    case CLEAR_POSTS: {
+      return {
+        ...state,
+        postsData: []
       };
     }
     case GET_USER: {
       return {
         ...state,
-        profile: action.payload
+        profile: action.payload.find(
+          (user) => user.userId === state.currentUser
+        )
+      };
+    }
+    case SET_USER_ID: {
+      return {
+        ...state,
+        currentUser: action.payload
       };
     }
     default:
@@ -61,4 +78,11 @@ export const getPosts = (value: IPostdataItem[]) => ({
 export const getProfileApi = (value: any) => ({
   type: GET_USER,
   payload: value
+});
+export const setUserId = (id: IProfile["currentUser"]) => ({
+  type: SET_USER_ID,
+  payload: id
+});
+export const clearPosts = () => ({
+  type: CLEAR_POSTS
 });

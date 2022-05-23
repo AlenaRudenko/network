@@ -6,6 +6,7 @@ interface IProps {
   setUsers: (value: IUsersItem[]) => void;
   changeFollow: (id: IUsersItem["id"]) => void;
   updatePage: () => void;
+  setUserId: (id: number) => void;
 }
 export const Users = (props: IProps) => {
   return (
@@ -15,6 +16,7 @@ export const Users = (props: IProps) => {
         {props.users.map((user) => {
           return (
             <UserItem
+              setUserId={props.setUserId}
               changeFollow={props.changeFollow}
               followed={user.followed}
               id={user.id}

@@ -1,14 +1,23 @@
+import { IApiProfile, ISidebarItem } from "../../../redux/store";
 import "./profileInfo.css";
 
-export const ProfileInfo = () => {
+interface IProps {
+  profile: IApiProfile | null;
+  photos: ISidebarItem[];
+  currentUser: number | null;
+}
+export const ProfileInfo = (props: IProps) => {
+  const findPic = () => {
+    const answer = props.photos.find(
+      (item) => +item.id === props.profile?.userId
+    );
+  };
   return (
     <div className="profile">
       <div className="description__block">
-        <img
-          alt=""
-          src="https://i.kym-cdn.com/photos/images/newsfeed/001/384/542/f03.jpg"
-        />
-        <span>Crying Kitty</span>
+        {props.profile?.userId === props.photos}
+        <span>{props.profile?.fullName || "Crying Kitty"}</span>
+        <span>{props.profile?.aboutMe}</span>
       </div>
     </div>
   );

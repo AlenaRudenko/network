@@ -1,17 +1,18 @@
-import { IUsers, IUsersItem } from "./usersReducer";
+import { IUsers } from "./usersReducer";
 
 export interface IProfile {
   postsData: IPostdataItem[];
   newPostText: string;
-  profile: IApiProfile[];
+  profile: IApiProfile | null;
+  currentUser: number | null;
 }
 export interface IApiProfile {
-  aboutMe: string;
-  contacts: IContact;
-  lookingForAJob: boolean;
-  lookingForAJobDescription: null;
-  fullName: string;
-  userId: number;
+  aboutMe?: string;
+  contacts?: IContact;
+  lookingForAJob?: boolean;
+  lookingForAJobDescription?: null;
+  fullName?: string;
+  userId?: number;
 }
 
 export interface IContact {

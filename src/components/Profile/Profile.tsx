@@ -1,13 +1,17 @@
-import { IState } from "../../redux/store";
+import { IApiProfile, IState } from "../../redux/store";
 import { MyPostContainer } from "./MyPosts/MyPostContainer";
 
 import "./profile.css";
 import { ProfileInfo } from "./ProfileInfo/ProfileInfo";
 
-export const Profile = () => {
+interface IProps {
+  profile: IApiProfile | null;
+}
+
+export const Profile = (props: IProps) => {
   return (
     <div>
-      <ProfileInfo />
+      <ProfileInfo {...props} />
       <MyPostContainer />
     </div>
   );

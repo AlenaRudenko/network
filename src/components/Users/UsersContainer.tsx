@@ -8,6 +8,7 @@ import {
   setUsers,
   updatePage
 } from "../../redux/usersReducer";
+import { setUserId } from "../../redux/profileReducer";
 import axios from "axios";
 import React from "react";
 import { Users } from "./Users";
@@ -19,6 +20,7 @@ interface IProps {
   updatePage: () => void;
   isFetching: IUsers["isFetching"];
   setIsFetching: (value: IUsers["isFetching"]) => void;
+  setUserId: (id: number) => void;
 }
 
 export class UsersApi extends React.Component<IProps> {
@@ -44,6 +46,7 @@ export class UsersApi extends React.Component<IProps> {
           />
         ) : null}
         <Users
+          setUserId={this.props.setUserId}
           setUsers={this.props.setUsers}
           users={this.props.users}
           changeFollow={this.props.changeFollow}
@@ -63,5 +66,6 @@ export const UsersContainer = connect(mapStateToProps, {
   changeFollow,
   setUsers,
   updatePage,
-  setIsFetching
+  setIsFetching,
+  setUserId
 })(UsersApi);

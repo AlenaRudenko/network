@@ -25,7 +25,7 @@ export class MyPostsApi extends React.Component<IProps> {
       .get("https://my-json-server.typicode.com/AlenaRudenko/demo/posts")
       .then((response) => this.props.getPosts(response.data));
   }
-
+  componentWillUnmount() {}
   render() {
     return (
       <MyPosts
